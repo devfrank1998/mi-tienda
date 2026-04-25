@@ -86,7 +86,7 @@ export default function App() {
             margin: "0 auto",
             lineHeight: "1.5",
             color: "#ffffff",
-textShadow: "0 2px 6px rgba(0,0,0,0.6)",
+textShadow: "0 2px 6px rgba(241, 226, 226, 0.96)",
 position: "relative",
 zIndex: 2
         
