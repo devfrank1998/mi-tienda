@@ -24,33 +24,63 @@ const products = [
 export default function App() {
   const buyNow = (product) => {
     const phone = "593000000000";
-    const msg = `Hola, quiero comprar el ${product}`;
+    const msg = `Hola, quiero información sobre el ${product}`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
   return (
-    <div style={{ fontFamily: "Inter, Arial", background: "#0a0a0a", color: "white", minHeight: "100vh" }}>
+    <div
+      style={{
+        fontFamily: "Inter, Arial, sans-serif",
+        background: "#0b0b0b",
+        color: "white",
+        minHeight: "100vh"
+      }}
+    >
       <section
         style={{
-          padding: "60px 20px",
+          padding: "50px 18px",
           textAlign: "center",
-          background: "linear-gradient(135deg, #111, #1f1f1f)"
+          background: "linear-gradient(135deg, #101010, #1c1c1c)"
         }}
       >
-        <h1 style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)", marginBottom: "15px", fontWeight: "900" }}>
+        <h1
+          style={{
+            fontSize: "clamp(1.8rem, 6vw, 4.2rem)",
+            marginBottom: "14px",
+            fontWeight: "900",
+            lineHeight: "1.15"
+          }}
+        >
           Celulares Premium con Garantía
+        
         </h1>
-        <p style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)", color: "#cfcfcf", maxWidth: "800px", margin: "0 auto" }}>
-          Equipos seleccionados, revisados y listos para entrega inmediata.
+
+        <p
+          style={{
+            fontSize: "clamp(0.95rem, 3vw, 1.35rem)",
+            color: "#cfcfcf",
+            maxWidth: "780px",
+            margin: "0 auto",
+            lineHeight: "1.6"
+          }}
+        >
+          Equipos revisados, seleccionados y listos para entrega inmediata.
         </p>
       </section>
 
-      <section style={{ padding: "50px 20px", maxWidth: "1400px", margin: "0 auto" }}>
+      <section
+        style={{
+          padding: "40px 16px",
+          maxWidth: "1350px",
+          margin: "0 auto"
+        }}
+      >
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "25px"
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "22px"
           }}
         >
           {products.map((p, i) => (
@@ -58,22 +88,62 @@ export default function App() {
               key={i}
               style={{
                 background: "#151515",
-                borderRadius: "24px",
+                borderRadius: "22px",
                 overflow: "hidden",
-                boxShadow: "0 12px 40px rgba(0,0,0,0.5)",
-                transition: "transform 0.3s ease"
+                boxShadow: "0 10px 30px rgba(0,0,0,0.45)",
+                display: "flex",
+                flexDirection: "column"
               }}
             >
               <img
                 src={p.img}
                 alt={p.name}
-                style={{ width: "100%", height: "260px", objectFit: "cover" }}
+                style={{
+                  width: "100%",
+                  height: "220px",
+                  objectFit: "cover"
+                }}
               />
 
-              <div style={{ padding: "22px" }}>
-                <h2 style={{ fontSize: "1.7rem", marginBottom: "8px" }}>{p.name}</h2>
-                <h3 style={{ color: "#ff7b00", fontSize: "1.8rem", marginBottom: "12px" }}>{p.price}</h3>
-                <p style={{ color: "#d6d6d6", lineHeight: "1.6", marginBottom: "20px" }}>{p.desc}</p>
+              <div
+                style={{
+                  padding: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  flexGrow: 1
+                }}
+              >
+                <h2
+                  style={{
+                    fontSize: "clamp(1.2rem, 4vw, 1.7rem)",
+                    marginBottom: "8px",
+                    lineHeight: "1.25"
+                  }}
+                >
+                  {p.name}
+                </h2>
+
+                <h3
+                  style={{
+                    color: "#ff7b00",
+                    fontSize: "clamp(1.4rem, 4vw, 1.9rem)",
+                    marginBottom: "12px"
+                  }}
+                >
+                  {p.price}
+                </h3>
+
+                <p
+                  style={{
+                    color: "#d6d6d6",
+                    lineHeight: "1.6",
+                    fontSize: "0.96rem",
+                    marginBottom: "18px",
+                    flexGrow: 1
+                  }}
+                >
+                  {p.desc}
+                </p>
 
                 <button
                   onClick={() => buyNow(p.name)}
