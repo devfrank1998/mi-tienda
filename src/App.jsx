@@ -115,7 +115,8 @@ export default function App() {
                 overflow: "hidden",
                 boxShadow: "0 8px 28px rgba(0,0,0,0.35)",
                 display: "flex",
-                flexDirection: "column"
+                flexDirection: "column",
+                transform: "translateZ(0)",
               }}
             >
               <img
@@ -133,15 +134,23 @@ export default function App() {
                   padding: "18px",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "12px"
+                  gap: "12px",
+                  position: "relative",
+zIndex: 2
                 }}
               >
                 <h2
-                  style={{
-                    fontSize: "1.35rem",
-                    margin: 0
-                  }}
-                >
+  style={{
+    fontSize: "1.25rem",
+    margin: 0,
+    color: "#ffffff",
+    fontWeight: "800",
+    lineHeight: "1.3",
+    textShadow: "0 1px 3px rgba(0,0,0,0.6)",
+    position: "relative",
+    zIndex: 2
+  }}
+>
                   {p.name}
                 </h2>
 
