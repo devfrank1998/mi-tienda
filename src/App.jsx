@@ -1,25 +1,8 @@
 import React from "react";
+import products from "./products.json";
 
-const products = [
-  {
-    name: "iPhone 13 Pro Max",
-    price: "$540",
-    desc: "Estado impecable, batería premium y listo para entrega inmediata.",
-    img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    name: "Samsung S23 Ultra",
-    price: "$620",
-    desc: "Cámara profesional, potencia extrema y diseño elegante.",
-    img: "https://images.unsplash.com/photo-1678911820864-e5c6bcb4ce8d?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    name: "Xiaomi 13T Pro",
-    price: "$430",
-    desc: "Rendimiento brutal y excelente relación calidad-precio.",
-    img: "https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&w=1200&q=80"
-  }
-];
+  
+
 
 const benefits = [
   "Garantía en todos los equipos",
@@ -151,6 +134,20 @@ zIndex: 2
 zIndex: 2
                 }}
               >
+                <div
+  style={{
+    display: "inline-block",
+    background: "#222",
+    color: "#ffb347",
+    padding: "6px 12px",
+    borderRadius: "999px",
+    fontSize: "0.8rem",
+    fontWeight: "700"
+  }}
+>
+  {p.tag}
+</div>
+
                 <h2
   style={{
     fontSize: "1.25rem",
