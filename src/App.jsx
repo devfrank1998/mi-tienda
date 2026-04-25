@@ -1,8 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import products from "./products.json";
-
-  
-
 
 const benefits = [
   "Garantía en todos los equipos",
@@ -12,10 +9,29 @@ const benefits = [
 ];
 
 export default function App() {
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
+
+  const categories = [
+  "Todos",
+  ...new Set(
+    products
+      .map((p) => p.category)
+      .filter((cat) => cat && cat.trim() !== "")
+  )
+];
+
+  const filteredProducts =
+    selectedCategory === "Todos"
+      ? products
+      : products.filter((p) => p.category === selectedCategory);
+
   const buyNow = (product) => {
     const phone = "593990666674";
     const msg = `Hola, estoy interesado en el ${product}. ¿Sigue disponible?`;
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(
+      `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,
+      "_blank"
+    );
   };
 
   return (
@@ -51,19 +67,19 @@ export default function App() {
         </div>
 
         <h1
-        style={{
-  fontSize: "clamp(1.8rem, 4vw, 3rem)",
-  fontWeight: "800",
-  marginBottom: "14px",
-  lineHeight: "1.2",
-  color: "#ffffff",
-  letterSpacing: "-0.5px",
-  WebkitTextFillColor: "#ffffff",
-  transform: "translateZ(0)",
-  backfaceVisibility: "hidden",
-  position: "relative",
-  zIndex: 5
-}}
+          style={{
+            fontSize: "clamp(1.8rem, 4vw, 3rem)",
+            fontWeight: "800",
+            marginBottom: "14px",
+            lineHeight: "1.2",
+            color: "#ffffff",
+            letterSpacing: "-0.5px",
+            WebkitTextFillColor: "#ffffff",
+            transform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+            position: "relative",
+            zIndex: 5
+          }}
         >
           Celulares Premium
         </h1>
@@ -71,15 +87,13 @@ export default function App() {
         <p
           style={{
             fontSize: "clamp(0.95rem, 2vw, 1.15rem)",
-            color: "#fffdfd",
             maxWidth: "650px",
             margin: "0 auto",
             lineHeight: "1.5",
             color: "#ffffff",
-textShadow: "0 2px 6px rgba(241, 226, 226, 0.96)",
-position: "relative",
-zIndex: 2
-        
+            textShadow: "0 2px 6px rgba(0,0,0,0.5)",
+            position: "relative",
+            zIndex: 2
           }}
         >
           Equipos revisados, garantizados y listos para entrega inmediata.
@@ -96,12 +110,43 @@ zIndex: 2
       >
         <div
           style={{
+            display: "flex",
+            gap: "10px",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            marginBottom: "30px"
+          }}
+        >
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              style={{
+                padding: "10px 18px",
+                borderRadius: "999px",
+                border: "none",
+                cursor: "pointer",
+                fontWeight: "600",
+                background:
+                  selectedCategory === cat
+                    ? "#ffb347"
+                    : "rgba(255,255,255,0.1)",
+                color: selectedCategory === cat ? "#111" : "#fff"
+              }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <div
+          style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "22px"
           }}
         >
-          {products.map((p, i) => (
+          {filteredProducts.map((p, i) => (
             <div
               key={i}
               style={{
@@ -111,7 +156,7 @@ zIndex: 2
                 boxShadow: "0 8px 28px rgba(0,0,0,0.35)",
                 display: "flex",
                 flexDirection: "column",
-                transform: "translateZ(0)",
+                transform: "translateZ(0)"
               }}
             >
               <img
@@ -131,35 +176,33 @@ zIndex: 2
                   flexDirection: "column",
                   gap: "12px",
                   position: "relative",
-zIndex: 2
+                  zIndex: 2
                 }}
               >
                 <div
-  style={{
-    display: "inline-block",
-    background: "#222",
-    color: "#ffb347",
-    padding: "6px 12px",
-    borderRadius: "999px",
-    fontSize: "0.8rem",
-    fontWeight: "700"
-  }}
->
-  {p.tag}
-</div>
+                  style={{
+                    display: "inline-block",
+                    background: "#222",
+                    color: "#ffb347",
+                    padding: "6px 12px",
+                    borderRadius: "999px",
+                    fontSize: "0.8rem",
+                    fontWeight: "700"
+                  }}
+                >
+                  {p.tag}
+                </div>
 
                 <h2
-  style={{
-    fontSize: "1.25rem",
-    margin: 0,
-    color: "#ffffff",
-    fontWeight: "800",
-    lineHeight: "1.3",
-    textShadow: "0 1px 3px rgba(0,0,0,0.6)",
-    position: "relative",
-    zIndex: 2
-  }}
->
+                  style={{
+                    fontSize: "1.25rem",
+                    margin: 0,
+                    color: "#ffffff",
+                    fontWeight: "800",
+                    lineHeight: "1.3",
+                    textShadow: "0 1px 3px rgba(0,0,0,0.6)"
+                  }}
+                >
                   {p.name}
                 </h2>
 
@@ -199,7 +242,6 @@ zIndex: 2
                     color: "white"
                   }}
                 >
-
                   Consultar por WhatsApp
                 </button>
               </div>
@@ -207,47 +249,50 @@ zIndex: 2
           ))}
         </div>
       </section>
-<section
-  style={{
-    padding: "70px 20px",
-    textAlign: "center"
-  }}
->
-  <h2
-    style={{
-      fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-      marginBottom: "16px"
-    }}
-  >
-    ¿Quieres vender tu equipo?
-  </h2>
 
-  <p
-    style={{
-      maxWidth: "700px",
-      margin: "0 auto 24px",
-      opacity: 0.9
-    }}
-  >
-    Publicamos tu celular, laptop o tablet en nuestra plataforma y te ayudamos a encontrar compradores reales.
-  </p>
+      {/* VENDER */}
+      <section
+        style={{
+          padding: "70px 20px",
+          textAlign: "center"
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+            marginBottom: "16px"
+          }}
+        >
+          ¿Quieres vender tu equipo?
+        </h2>
 
-  <a
-    href="https://wa.me/593990666674?text=Hola,%20quiero%20publicar%20mi%20producto"
-    target="_blank"
-    rel="noreferrer"
-    style={{
-      background: "linear-gradient(135deg, #ffb347, #ffcc33)",
-      color: "#111",
-      padding: "14px 28px",
-      borderRadius: "999px",
-      fontWeight: "700",
-      textDecoration: "none"
-    }}
-  >
-    Publicar mi producto
-  </a>
-</section>
+        <p
+          style={{
+            maxWidth: "700px",
+            margin: "0 auto 24px",
+            opacity: 0.9
+          }}
+        >
+          Publicamos tu celular, laptop o tablet en nuestra plataforma y te ayudamos a encontrar compradores reales.
+        </p>
+
+        <a
+          href="https://wa.me/593990666674?text=Hola,%20quiero%20publicar%20mi%20producto"
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            background: "linear-gradient(135deg, #ffb347, #ffcc33)",
+            color: "#111",
+            padding: "14px 28px",
+            borderRadius: "999px",
+            fontWeight: "700",
+            textDecoration: "none"
+          }}
+        >
+          Publicar mi producto
+        </a>
+      </section>
+
       {/* BENEFICIOS */}
       <section
         style={{
@@ -262,9 +307,7 @@ zIndex: 2
               fontSize: "clamp(1.4rem, 4vw, 2.4rem)",
               marginBottom: "25px",
               color: "#ffffff",
-textShadow: "0 2px 6px rgba(0,0,0,0.6)",
-position: "relative",
-zIndex: 2
+              textShadow: "0 2px 6px rgba(0,0,0,0.6)"
             }}
           >
             ¿Por qué elegirnos?
