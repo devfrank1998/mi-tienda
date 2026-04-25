@@ -215,13 +215,97 @@ export default function App() {
                   fontWeight: "700",
                   color: "#f1f1f1"
                 }}
+                
               >
                 {b}
+
               </div>
             ))}
           </div>
         </div>
       </section>
+      {/* TESTIMONIOS + CTA ELEGANTE */}
+<section
+  style={{
+    padding: "60px 20px",
+    background: "#0f0f0f"
+  }}
+>
+  <div
+    style={{
+      maxWidth: "1100px",
+      margin: "0 auto"
+    }}
+  >
+    <h2
+      style={{
+        textAlign: "center",
+        fontSize: "clamp(1.8rem, 5vw, 3rem)",
+        marginBottom: "35px"
+      }}
+    >
+      Clientes satisfechos
+    </h2>
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+        gap: "20px",
+        marginBottom: "45px"
+      }}
+    >
+      {[
+        "Excelente atención y equipo en perfecto estado.",
+        "Entrega rápida y totalmente confiable.",
+        "Compré mi celular y todo salió mejor de lo esperado."
+      ].map((t, i) => (
+        <div
+          key={i}
+          style={{
+            background: "#181818",
+            borderRadius: "18px",
+            padding: "22px",
+            color: "#d8d8d8",
+            lineHeight: "1.6"
+          }}
+        >
+          ⭐⭐⭐⭐⭐ <br /><br />
+          {t}
+        </div>
+      ))}
+    </div>
+
+    <div
+      style={{
+        background: "linear-gradient(135deg, #171717, #202020)",
+        borderRadius: "22px",
+        padding: "30px",
+        textAlign: "center"
+      }}
+    >
+      <h3
+        style={{
+          fontSize: "clamp(1.4rem, 4vw, 2rem)",
+          marginBottom: "12px"
+        }}
+      >
+        Stock limitado esta semana
+      </h3>
+
+      <p
+        style={{
+          color: "#cfcfcf",
+          maxWidth: "700px",
+          margin: "0 auto",
+          lineHeight: "1.7"
+        }}
+      >
+        Consulta disponibilidad antes de que se agoten los equipos más solicitados.
+      </p>
+    </div>
+  </div>
+</section>
     </div>
   );
 }
