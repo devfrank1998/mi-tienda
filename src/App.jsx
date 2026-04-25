@@ -53,12 +53,14 @@ export default function App() {
         }}
       >
         <h1
-          style={{
-            fontSize: "clamp(2rem, 6vw, 4.5rem)",
-            fontWeight: "900",
-            marginBottom: "18px",
-            lineHeight: "1.1"
-          }}
+         style={{
+  fontSize: "clamp(2rem, 6vw, 4.5rem)",
+  fontWeight: "900",
+  marginBottom: "18px",
+  lineHeight: "1.1",
+  color: "#ffffff",
+  textShadow: "0 2px 10px rgba(0,0,0,0.5)"
+}}
         >
           Celulares Premium con Garantía
         </h1>
@@ -202,7 +204,8 @@ export default function App() {
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
               gap: "18px",
-              marginTop: "30px"
+              marginTop: "30px",
+              color: "#ffffff",
             }}
           >
             {benefits.map((b, i) => (
@@ -252,7 +255,8 @@ export default function App() {
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
         gap: "20px",
-        marginBottom: "45px"
+        marginBottom: "45px",
+        color: "#ffffff",
       }}
     >
       {[
@@ -287,7 +291,8 @@ export default function App() {
       <h3
         style={{
           fontSize: "clamp(1.4rem, 4vw, 2rem)",
-          marginBottom: "12px"
+          marginBottom: "12px",
+          color: "#ffffff",
         }}
       >
         Stock limitado esta semana
