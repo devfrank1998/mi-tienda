@@ -84,7 +84,12 @@ export default function App() {
             color: "#cfcfcf",
             maxWidth: "650px",
             margin: "0 auto",
-            lineHeight: "1.5"
+            lineHeight: "1.5",
+            color: "#ffffff",
+textShadow: "0 2px 6px rgba(0,0,0,0.6)",
+position: "relative",
+zIndex: 2
+        
           }}
         >
           Equipos revisados, garantizados y listos para entrega inmediata.
@@ -210,7 +215,11 @@ zIndex: 2
             style={{
               textAlign: "center",
               fontSize: "clamp(1.4rem, 4vw, 2.4rem)",
-              marginBottom: "25px"
+              marginBottom: "25px",
+              color: "#ffffff",
+textShadow: "0 2px 6px rgba(0,0,0,0.6)",
+position: "relative",
+zIndex: 2
             }}
           >
             ¿Por qué elegirnos?
