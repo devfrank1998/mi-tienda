@@ -96,12 +96,12 @@ export default function App() {
             zIndex: 2
           }}
         >
-         entrega inmediata.
+         entrega inmediata
         </p>
       </section>
 <section
   style={{
-    padding: "18px 14px",
+    padding: "10px 10px",
     background: "#101010"
   }}
 >
@@ -111,7 +111,7 @@ export default function App() {
       margin: "0 auto",
       display: "grid",
       gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-      gap: "16px"
+      gap: "8px"
     }}
   >
     {[
@@ -124,11 +124,11 @@ export default function App() {
         key={i}
         style={{
           background: "#181818",
-          padding: "18px",
+          padding: "8px",
           borderRadius: "16px",
           textAlign: "center",
           fontWeight: "700",
-          fontSize: "0.85rem"
+          fontSize: "0.72rem"
         }}
       >
         {item}
