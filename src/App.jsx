@@ -4,27 +4,27 @@ const products = [
   {
     name: "iPhone 13 Pro Max",
     price: "$540",
-    desc: "Estado impecable, batería premium, listo para entrega inmediata.",
-    img: "https://images.unsplash.com/photo-1603898037225-1c6fd1b9a3c8?auto=format&fit=crop&w=900&q=80"
+    desc: "Estado impecable, batería premium y listo para entrega inmediata.",
+    img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=1200&q=80"
   },
   {
     name: "Samsung S23 Ultra",
     price: "$620",
-    desc: "Rendimiento brutal, cámara profesional y diseño elegante.",
-    img: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=900&q=80"
+    desc: "Cámara profesional, potencia extrema y diseño elegante.",
+    img: "https://images.unsplash.com/photo-1678911820864-e5c6bcb4ce8d?auto=format&fit=crop&w=1200&q=80"
   },
   {
     name: "Xiaomi 13T Pro",
     price: "$430",
-    desc: "Potencia, velocidad y excelente relación calidad-precio.",
-    img: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
+    desc: "Rendimiento brutal y excelente relación calidad-precio.",
+    img: "https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&w=1200&q=80"
   }
 ];
 
 export default function App() {
   const buyNow = (product) => {
     const phone = "593000000000";
-    const msg = `Hola, quiero información sobre el ${product}`;
+    const msg = `Hola, quiero comprar el ${product}`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
@@ -37,50 +37,52 @@ export default function App() {
         minHeight: "100vh"
       }}
     >
+      {/* HERO */}
       <section
         style={{
-          padding: "50px 18px",
+          padding: "70px 20px 50px",
           textAlign: "center",
-          background: "linear-gradient(135deg, #101010, #1c1c1c)"
+          background: "linear-gradient(135deg, #111, #1c1c1c)"
         }}
       >
         <h1
           style={{
-            fontSize: "clamp(1.8rem, 6vw, 4.2rem)",
-            marginBottom: "14px",
+            fontSize: "clamp(2rem, 6vw, 4.5rem)",
             fontWeight: "900",
-            lineHeight: "1.15"
+            marginBottom: "18px",
+            color: "white",
+            lineHeight: "1.1"
           }}
         >
           Celulares Premium con Garantía
-        
         </h1>
 
         <p
           style={{
-            fontSize: "clamp(0.95rem, 3vw, 1.35rem)",
-            color: "#cfcfcf",
-            maxWidth: "780px",
+            fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
+            color: "#d0d0d0",
+            maxWidth: "850px",
             margin: "0 auto",
             lineHeight: "1.6"
           }}
         >
-          Equipos revisados, seleccionados y listos para entrega inmediata.
+          Equipos seleccionados, revisados y listos para entrega inmediata.
         </p>
       </section>
 
+      {/* PRODUCTOS */}
       <section
         style={{
-          padding: "40px 16px",
-          maxWidth: "1350px",
+          padding: "40px 20px 70px",
+          maxWidth: "1400px",
           margin: "0 auto"
         }}
       >
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "22px"
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: "28px"
           }}
         >
           {products.map((p, i) => (
@@ -88,9 +90,9 @@ export default function App() {
               key={i}
               style={{
                 background: "#151515",
-                borderRadius: "22px",
+                borderRadius: "24px",
                 overflow: "hidden",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.45)",
+                boxShadow: "0 10px 35px rgba(0,0,0,0.45)",
                 display: "flex",
                 flexDirection: "column"
               }}
@@ -100,24 +102,26 @@ export default function App() {
                 alt={p.name}
                 style={{
                   width: "100%",
-                  height: "220px",
-                  objectFit: "cover"
+                  height: "240px",
+                  objectFit: "cover",
+                  display: "block"
                 }}
               />
 
               <div
                 style={{
-                  padding: "20px",
+                  padding: "22px",
                   display: "flex",
                   flexDirection: "column",
+                  gap: "14px",
                   flexGrow: 1
                 }}
               >
                 <h2
                   style={{
-                    fontSize: "clamp(1.2rem, 4vw, 1.7rem)",
-                    marginBottom: "8px",
-                    lineHeight: "1.25"
+                    fontSize: "clamp(1.4rem, 4vw, 2rem)",
+                    margin: 0,
+                    color: "white"
                   }}
                 >
                   {p.name}
@@ -126,8 +130,8 @@ export default function App() {
                 <h3
                   style={{
                     color: "#ff7b00",
-                    fontSize: "clamp(1.4rem, 4vw, 1.9rem)",
-                    marginBottom: "12px"
+                    fontSize: "2rem",
+                    margin: 0
                   }}
                 >
                   {p.price}
@@ -136,10 +140,9 @@ export default function App() {
                 <p
                   style={{
                     color: "#d6d6d6",
-                    lineHeight: "1.6",
-                    fontSize: "0.96rem",
-                    marginBottom: "18px",
-                    flexGrow: 1
+                    lineHeight: "1.7",
+                    fontSize: "1rem",
+                    margin: 0
                   }}
                 >
                   {p.desc}
@@ -148,11 +151,12 @@ export default function App() {
                 <button
                   onClick={() => buyNow(p.name)}
                   style={{
+                    marginTop: "auto",
                     width: "100%",
-                    padding: "14px",
+                    padding: "15px",
                     borderRadius: "14px",
                     border: "none",
-                    fontWeight: "700",
+                    fontWeight: "800",
                     fontSize: "1rem",
                     cursor: "pointer",
                     background: "linear-gradient(135deg, #25D366, #1ebe5d)",
