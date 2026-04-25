@@ -96,7 +96,7 @@ export default function App() {
             zIndex: 2
           }}
         >
-          Equipos revisados, garantizados y listos para entrega inmediata.
+         entrega inmediata.
         </p>
       </section>
 <section
