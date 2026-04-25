@@ -81,7 +81,7 @@ export default function App() {
         <p
           style={{
             fontSize: "clamp(0.95rem, 2vw, 1.15rem)",
-            color: "#cfcfcf",
+            color: "#fffdfd",
             maxWidth: "650px",
             margin: "0 auto",
             lineHeight: "1.5",
