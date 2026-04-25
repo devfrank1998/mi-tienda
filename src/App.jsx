@@ -47,50 +47,63 @@ export default function App() {
       {/* HERO */}
       <section
         style={{
-          padding: "70px 20px 50px",
+          padding: "45px 18px 35px",
           textAlign: "center",
-          background: "linear-gradient(135deg, #111, #1c1c1c)"
+          background: "linear-gradient(135deg, #111, #1a1a1a)"
         }}
       >
-        <h1
-         style={{
-  fontSize: "clamp(2rem, 6vw, 4.5rem)",
-  fontWeight: "900",
-  marginBottom: "18px",
-  lineHeight: "1.1",
-  color: "#ffffff",
-  textShadow: "0 2px 10px rgba(0,0,0,0.5)"
-}}
+        <div
+          style={{
+            display: "inline-block",
+            background: "#1f1f1f",
+            padding: "8px 16px",
+            borderRadius: "999px",
+            fontSize: "0.85rem",
+            marginBottom: "16px",
+            color: "#ffb347",
+            fontWeight: "700"
+          }}
         >
-          Celulares Premium con Garantía
+          🔥 Ofertas verificadas
+        </div>
+
+        <h1
+          style={{
+            fontSize: "clamp(1.7rem, 4vw, 3rem)",
+            fontWeight: "800",
+            marginBottom: "14px",
+            lineHeight: "1.2"
+          }}
+        >
+          Celulares Premium
         </h1>
 
         <p
           style={{
-            fontSize: "clamp(1rem, 2.5vw, 1.3rem)",
-            color: "#d0d0d0",
-            maxWidth: "850px",
+            fontSize: "clamp(0.95rem, 2vw, 1.15rem)",
+            color: "#cfcfcf",
+            maxWidth: "650px",
             margin: "0 auto",
-            lineHeight: "1.6"
+            lineHeight: "1.5"
           }}
         >
-          Equipos seleccionados, revisados y listos para entrega inmediata.
+          Equipos revisados, garantizados y listos para entrega inmediata.
         </p>
       </section>
 
       {/* PRODUCTOS */}
       <section
         style={{
-          padding: "40px 20px 70px",
-          maxWidth: "1400px",
+          padding: "30px 18px 60px",
+          maxWidth: "1300px",
           margin: "0 auto"
         }}
       >
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "28px"
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "22px"
           }}
         >
           {products.map((p, i) => (
@@ -98,9 +111,9 @@ export default function App() {
               key={i}
               style={{
                 background: "#151515",
-                borderRadius: "24px",
+                borderRadius: "22px",
                 overflow: "hidden",
-                boxShadow: "0 10px 35px rgba(0,0,0,0.45)",
+                boxShadow: "0 8px 28px rgba(0,0,0,0.35)",
                 display: "flex",
                 flexDirection: "column"
               }}
@@ -110,23 +123,22 @@ export default function App() {
                 alt={p.name}
                 style={{
                   width: "100%",
-                  height: "240px",
+                  height: "220px",
                   objectFit: "cover"
                 }}
               />
 
               <div
                 style={{
-                  padding: "22px",
+                  padding: "18px",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "14px",
-                  flexGrow: 1
+                  gap: "12px"
                 }}
               >
                 <h2
                   style={{
-                    fontSize: "clamp(1.4rem, 4vw, 2rem)",
+                    fontSize: "1.35rem",
                     margin: 0
                   }}
                 >
@@ -135,8 +147,8 @@ export default function App() {
 
                 <h3
                   style={{
-                    color: "#ff7b00",
-                    fontSize: "2rem",
+                    color: "#ff8a00",
+                    fontSize: "1.8rem",
                     margin: 0
                   }}
                 >
@@ -146,8 +158,9 @@ export default function App() {
                 <p
                   style={{
                     color: "#d6d6d6",
-                    lineHeight: "1.7",
-                    margin: 0
+                    lineHeight: "1.6",
+                    margin: 0,
+                    fontSize: "0.95rem"
                   }}
                 >
                   {p.desc}
@@ -156,13 +169,13 @@ export default function App() {
                 <button
                   onClick={() => buyNow(p.name)}
                   style={{
-                    marginTop: "auto",
+                    marginTop: "12px",
                     width: "100%",
-                    padding: "16px",
-                    borderRadius: "14px",
+                    padding: "14px",
+                    borderRadius: "12px",
                     border: "none",
-                    fontWeight: "800",
-                    fontSize: "1rem",
+                    fontWeight: "700",
+                    fontSize: "0.95rem",
                     cursor: "pointer",
                     background: "linear-gradient(135deg, #25D366, #1ebe5d)",
                     color: "white"
@@ -176,24 +189,19 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONFIANZA */}
+      {/* BENEFICIOS */}
       <section
         style={{
-          padding: "50px 20px 80px",
+          padding: "45px 18px 65px",
           background: "#121212"
         }}
       >
-        <div
-          style={{
-            maxWidth: "1000px",
-            margin: "0 auto",
-            textAlign: "center"
-          }}
-        >
+        <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
           <h2
             style={{
-              fontSize: "clamp(1.8rem, 5vw, 3rem)",
-              marginBottom: "20px"
+              textAlign: "center",
+              fontSize: "clamp(1.4rem, 4vw, 2.4rem)",
+              marginBottom: "25px"
             }}
           >
             ¿Por qué elegirnos?
@@ -203,9 +211,7 @@ export default function App() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "18px",
-              marginTop: "30px",
-              color: "#ffffff",
+              gap: "16px"
             }}
           >
             {benefits.map((b, i) => (
@@ -213,104 +219,19 @@ export default function App() {
                 key={i}
                 style={{
                   background: "#1b1b1b",
-                  padding: "22px",
-                  borderRadius: "18px",
-                  fontWeight: "700",
-                  color: "#f1f1f1"
+                  padding: "18px",
+                  borderRadius: "16px",
+                  fontWeight: "600",
+                  color: "#f1f1f1",
+                  fontSize: "0.95rem"
                 }}
-                
               >
                 {b}
-
               </div>
             ))}
           </div>
         </div>
       </section>
-      {/* TESTIMONIOS + CTA ELEGANTE */}
-<section
-  style={{
-    padding: "60px 20px",
-    background: "#0f0f0f"
-  }}
->
-  <div
-    style={{
-      maxWidth: "1100px",
-      margin: "0 auto"
-    }}
-  >
-    <h2
-      style={{
-        textAlign: "center",
-        fontSize: "clamp(1.8rem, 5vw, 3rem)",
-        marginBottom: "35px"
-      }}
-    >
-      Clientes satisfechos
-    </h2>
-
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-        gap: "20px",
-        marginBottom: "45px",
-        color: "#ffffff",
-      }}
-    >
-      {[
-        "Excelente atención y equipo en perfecto estado.",
-        "Entrega rápida y totalmente confiable.",
-        "Compré mi celular y todo salió mejor de lo esperado."
-      ].map((t, i) => (
-        <div
-          key={i}
-          style={{
-            background: "#181818",
-            borderRadius: "18px",
-            padding: "22px",
-            color: "#d8d8d8",
-            lineHeight: "1.6"
-          }}
-        >
-          ⭐⭐⭐⭐⭐ <br /><br />
-          {t}
-        </div>
-      ))}
-    </div>
-
-    <div
-      style={{
-        background: "linear-gradient(135deg, #171717, #202020)",
-        borderRadius: "22px",
-        padding: "30px",
-        textAlign: "center"
-      }}
-    >
-      <h3
-        style={{
-          fontSize: "clamp(1.4rem, 4vw, 2rem)",
-          marginBottom: "12px",
-          color: "#ffffff",
-        }}
-      >
-        Stock limitado esta semana
-      </h3>
-
-      <p
-        style={{
-          color: "#cfcfcf",
-          maxWidth: "700px",
-          margin: "0 auto",
-          lineHeight: "1.7"
-        }}
-      >
-        Consulta disponibilidad antes de que se agoten los equipos más solicitados.
-      </p>
-    </div>
-  </div>
-</section>
     </div>
   );
 }
