@@ -199,6 +199,7 @@ zIndex: 2
                     color: "white"
                   }}
                 >
+
                   Consultar por WhatsApp
                 </button>
               </div>
@@ -206,7 +207,47 @@ zIndex: 2
           ))}
         </div>
       </section>
+<section
+  style={{
+    padding: "70px 20px",
+    textAlign: "center"
+  }}
+>
+  <h2
+    style={{
+      fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+      marginBottom: "16px"
+    }}
+  >
+    ¿Quieres vender tu equipo?
+  </h2>
 
+  <p
+    style={{
+      maxWidth: "700px",
+      margin: "0 auto 24px",
+      opacity: 0.9
+    }}
+  >
+    Publicamos tu celular, laptop o tablet en nuestra plataforma y te ayudamos a encontrar compradores reales.
+  </p>
+
+  <a
+    href="https://wa.me/593990666674?text=Hola,%20quiero%20publicar%20mi%20producto"
+    target="_blank"
+    rel="noreferrer"
+    style={{
+      background: "linear-gradient(135deg, #ffb347, #ffcc33)",
+      color: "#111",
+      padding: "14px 28px",
+      borderRadius: "999px",
+      fontWeight: "700",
+      textDecoration: "none"
+    }}
+  >
+    Publicar mi producto
+  </a>
+</section>
       {/* BENEFICIOS */}
       <section
         style={{
