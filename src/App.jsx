@@ -68,12 +68,19 @@ export default function App() {
         </div>
 
         <h1
-          style={{
-            fontSize: "clamp(1.7rem, 4vw, 3rem)",
-            fontWeight: "800",
-            marginBottom: "14px",
-            lineHeight: "1.2"
-          }}
+        style={{
+  fontSize: "clamp(1.8rem, 4vw, 3rem)",
+  fontWeight: "800",
+  marginBottom: "14px",
+  lineHeight: "1.2",
+  color: "#ffffff",
+  letterSpacing: "-0.5px",
+  WebkitTextFillColor: "#ffffff",
+  transform: "translateZ(0)",
+  backfaceVisibility: "hidden",
+  position: "relative",
+  zIndex: 5
+}}
         >
           Celulares Premium
         </h1>
