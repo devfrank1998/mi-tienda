@@ -21,10 +21,17 @@ const products = [
   }
 ];
 
+const benefits = [
+  "Garantía en todos los equipos",
+  "Entrega rápida y segura",
+  "Equipos revisados profesionalmente",
+  "Pago confiable y atención personalizada"
+];
+
 export default function App() {
   const buyNow = (product) => {
-    const phone = "593000000000";
-    const msg = `Hola, quiero comprar el ${product}`;
+    const phone = "593990666674";
+    const msg = `Hola, estoy interesado en el ${product}. ¿Sigue disponible?`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
@@ -50,7 +57,6 @@ export default function App() {
             fontSize: "clamp(2rem, 6vw, 4.5rem)",
             fontWeight: "900",
             marginBottom: "18px",
-            color: "white",
             lineHeight: "1.1"
           }}
         >
@@ -59,7 +65,7 @@ export default function App() {
 
         <p
           style={{
-            fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
+            fontSize: "clamp(1rem, 2.5vw, 1.3rem)",
             color: "#d0d0d0",
             maxWidth: "850px",
             margin: "0 auto",
@@ -103,8 +109,7 @@ export default function App() {
                 style={{
                   width: "100%",
                   height: "240px",
-                  objectFit: "cover",
-                  display: "block"
+                  objectFit: "cover"
                 }}
               />
 
@@ -120,8 +125,7 @@ export default function App() {
                 <h2
                   style={{
                     fontSize: "clamp(1.4rem, 4vw, 2rem)",
-                    margin: 0,
-                    color: "white"
+                    margin: 0
                   }}
                 >
                   {p.name}
@@ -141,7 +145,6 @@ export default function App() {
                   style={{
                     color: "#d6d6d6",
                     lineHeight: "1.7",
-                    fontSize: "1rem",
                     margin: 0
                   }}
                 >
@@ -153,7 +156,7 @@ export default function App() {
                   style={{
                     marginTop: "auto",
                     width: "100%",
-                    padding: "15px",
+                    padding: "16px",
                     borderRadius: "14px",
                     border: "none",
                     fontWeight: "800",
@@ -163,11 +166,60 @@ export default function App() {
                     color: "white"
                   }}
                 >
-                  Comprar por WhatsApp
+                  Consultar por WhatsApp
                 </button>
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* CONFIANZA */}
+      <section
+        style={{
+          padding: "50px 20px 80px",
+          background: "#121212"
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1000px",
+            margin: "0 auto",
+            textAlign: "center"
+          }}
+        >
+          <h2
+            style={{
+              fontSize: "clamp(1.8rem, 5vw, 3rem)",
+              marginBottom: "20px"
+            }}
+          >
+            ¿Por qué elegirnos?
+          </h2>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: "18px",
+              marginTop: "30px"
+            }}
+          >
+            {benefits.map((b, i) => (
+              <div
+                key={i}
+                style={{
+                  background: "#1b1b1b",
+                  padding: "22px",
+                  borderRadius: "18px",
+                  fontWeight: "700",
+                  color: "#f1f1f1"
+                }}
+              >
+                {b}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
