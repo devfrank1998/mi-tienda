@@ -99,7 +99,43 @@ export default function App() {
           Equipos revisados, garantizados y listos para entrega inmediata.
         </p>
       </section>
-
+<section
+  style={{
+    padding: "28px 18px",
+    background: "#101010"
+  }}
+>
+  <div
+    style={{
+      maxWidth: "1100px",
+      margin: "0 auto",
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+      gap: "16px"
+    }}
+  >
+    {[
+      "✔ Equipos revisados",
+      "✔ Garantía de funcionamiento",
+      "✔ Entrega rápida",
+      "✔ Atención personalizada"
+    ].map((item, i) => (
+      <div
+        key={i}
+        style={{
+          background: "#181818",
+          padding: "18px",
+          borderRadius: "16px",
+          textAlign: "center",
+          fontWeight: "700",
+          fontSize: "0.95rem"
+        }}
+      >
+        {item}
+      </div>
+    ))}
+  </div>
+</section>
       {/* PRODUCTOS */}
       <section
         style={{
