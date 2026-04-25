@@ -101,7 +101,7 @@ export default function App() {
       </section>
 <section
   style={{
-    padding: "28px 18px",
+    padding: "18px 14px",
     background: "#101010"
   }}
 >
@@ -128,7 +128,7 @@ export default function App() {
           borderRadius: "16px",
           textAlign: "center",
           fontWeight: "700",
-          fontSize: "0.95rem"
+          fontSize: "0.85rem"
         }}
       >
         {item}
