@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import products from "./products.json";
-
+import React, { useEffect, useState } from "react";
+import { db } from "./firebase";
+import { collection, getDocs } from "firebase/firestore";
 const benefits = [
   "Garantía en todos los equipos",
   "Entrega rápida y segura",
@@ -9,6 +9,19 @@ const benefits = [
 ];
 
 export default function App() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+  const fetchProducts = async () => {
+    const querySnapshot = await getDocs(collection(db, "products"));
+    const productsData = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    setProducts(productsData);
+  };
+
+  fetchProducts();
+}, []);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
 
   const categories = [
@@ -192,11 +205,13 @@ export default function App() {
                 boxShadow: "0 8px 28px rgba(0,0,0,0.35)",
                 display: "flex",
                 flexDirection: "column",
-                transform: "translateZ(0)"
+                transform: "translateZ(0)",
+                maxWidth: "420px",
+margin: "0 auto",
               }}
             >
               <img
-                src={p.img}
+                src={p.image}
                 alt={p.name}
                 style={{
                   width: "100%",
@@ -228,7 +243,29 @@ export default function App() {
                 >
                   {p.tag}
                 </div>
-
+<div
+  style={{
+  alignSelf: "flex-start",
+  background:
+    p.status === "Disponible"
+      ? "#123d1f"
+      : p.status === "Reservado"
+      ? "#4a3b12"
+      : "#4a1212",
+  color:
+    p.status === "Disponible"
+      ? "#7dff9b"
+      : p.status === "Reservado"
+      ? "#ffd86b"
+      : "#ff7d7d",
+  padding: "6px 12px",
+  borderRadius: "999px",
+  fontSize: "0.75rem",
+  fontWeight: "700"
+}}
+>
+  {p.status}
+</div>
                 <h2
                   style={{
                     fontSize: "1.25rem",
@@ -249,7 +286,7 @@ export default function App() {
                     margin: 0
                   }}
                 >
-                  {p.price}
+                  ${p.price}
                 </h3>
 
                 <p
@@ -260,7 +297,7 @@ export default function App() {
                     fontSize: "0.95rem"
                   }}
                 >
-                  {p.desc}
+                  {p.description}
                 </p>
 
                 <button
