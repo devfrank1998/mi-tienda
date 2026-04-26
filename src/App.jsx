@@ -89,7 +89,7 @@ export default function App() {
             lineHeight: "1.2"
           }}
         >
-          Celulares Premium
+          Encuentra productos únicos al mejor precio
         </h1>
 
         <p
