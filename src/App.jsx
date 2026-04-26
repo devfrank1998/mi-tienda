@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { db } from "./firebase";
 import { collection, getDocs } from "firebase/firestore";
+
 const benefits = [
   "Garantía en todos los equipos",
   "Entrega rápida y segura",
@@ -10,28 +11,29 @@ const benefits = [
 
 export default function App() {
   const [products, setProducts] = useState([]);
-  useEffect(() => {
-  const fetchProducts = async () => {
-    const querySnapshot = await getDocs(collection(db, "products"));
-    const productsData = querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data()
-    }));
-    setProducts(productsData);
-  };
-
-  fetchProducts();
-}, []);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const querySnapshot = await getDocs(collection(db, "products"));
+      const productsData = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setProducts(productsData);
+    };
+
+    fetchProducts();
+  }, []);
+
   const categories = [
-  "Todos",
-  ...new Set(
-    products
-      .map((p) => p.category)
-      .filter((cat) => cat && cat.trim() !== "")
-  )
-];
+    "Todos",
+    ...new Set(
+      products
+        .map((p) => p.category)
+        .filter((cat) => cat && cat.trim() !== "")
+    )
+  ];
 
   const filteredProducts =
     selectedCategory === "Todos"
@@ -84,14 +86,7 @@ export default function App() {
             fontSize: "clamp(1.8rem, 4vw, 3rem)",
             fontWeight: "800",
             marginBottom: "14px",
-            lineHeight: "1.2",
-            color: "#ffffff",
-            letterSpacing: "-0.5px",
-            WebkitTextFillColor: "#ffffff",
-            transform: "translateZ(0)",
-            backfaceVisibility: "hidden",
-            position: "relative",
-            zIndex: 5
+            lineHeight: "1.2"
           }}
         >
           Celulares Premium
@@ -103,52 +98,52 @@ export default function App() {
             maxWidth: "650px",
             margin: "0 auto",
             lineHeight: "1.5",
-            color: "#ffffff",
-            textShadow: "0 2px 6px rgba(0,0,0,0.5)",
-            position: "relative",
-            zIndex: 2
+            color: "#d8d8d8"
           }}
         >
-         entrega inmediata
+          Entrega inmediata
         </p>
       </section>
-<section
-  style={{
-    padding: "10px 10px",
-    background: "#101010"
-  }}
->
-  <div
-    style={{
-      maxWidth: "1100px",
-      margin: "0 auto",
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-      gap: "8px"
-    }}
-  >
-    {[
-      "✔ Equipos revisados",
-      "✔ Garantía de funcionamiento",
-      "✔ Entrega rápida",
-      "✔ Atención personalizada"
-    ].map((item, i) => (
-      <div
-        key={i}
+
+      {/* BENEFICIOS RÁPIDOS */}
+      <section
         style={{
-          background: "#181818",
-          padding: "8px",
-          borderRadius: "16px",
-          textAlign: "center",
-          fontWeight: "700",
-          fontSize: "0.72rem"
+          padding: "12px 10px",
+          background: "#101010"
         }}
       >
-        {item}
-      </div>
-    ))}
-  </div>
-</section>
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "8px"
+          }}
+        >
+          {[
+            "✔ Equipos revisados",
+            "✔ Garantía de funcionamiento",
+            "✔ Entrega rápida",
+            "✔ Atención personalizada"
+          ].map((item, i) => (
+            <div
+              key={i}
+              style={{
+                background: "#181818",
+                padding: "8px",
+                borderRadius: "16px",
+                textAlign: "center",
+                fontWeight: "700",
+                fontSize: "0.72rem"
+              }}
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* PRODUCTOS */}
       <section
         style={{
@@ -200,80 +195,99 @@ export default function App() {
               key={i}
               style={{
                 background: "#151515",
-                borderRadius: "22px",
+                borderRadius: "24px",
                 overflow: "hidden",
-                boxShadow: "0 8px 28px rgba(0,0,0,0.35)",
+                boxShadow: "0 12px 30px rgba(0,0,0,0.45)",
                 display: "flex",
                 flexDirection: "column",
-                transform: "translateZ(0)",
-                maxWidth: "420px",
-margin: "0 auto",
+                maxWidth: "390px",
+                margin: "0 auto",
+                border: "1px solid rgba(255,255,255,0.05)"
               }}
             >
-              <img
-                src={p.image}
-                alt={p.name}
+              <div
                 style={{
                   width: "100%",
-                  height: "220px",
-                  objectFit: "cover"
+                  height: "280px",
+                  background: "#0d0d0d",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden"
                 }}
-              />
+              >
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain"
+                  }}
+                />
+              </div>
 
               <div
                 style={{
                   padding: "18px",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "12px",
-                  position: "relative",
-                  zIndex: 2
+                  gap: "12px"
                 }}
               >
                 <div
                   style={{
-                    display: "inline-block",
-                    background: "#222",
-                    color: "#ffb347",
-                    padding: "6px 12px",
-                    borderRadius: "999px",
-                    fontSize: "0.8rem",
-                    fontWeight: "700"
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    gap: "8px",
+                    flexWrap: "wrap"
                   }}
                 >
-                  {p.tag}
+                  <span
+                    style={{
+                      background: "rgba(255,179,71,0.15)",
+                      color: "#ffb347",
+                      padding: "6px 12px",
+                      borderRadius: "999px",
+                      fontSize: "0.75rem",
+                      fontWeight: "700"
+                    }}
+                  >
+                    {p.tag}
+                  </span>
+
+                  <span
+                    style={{
+                      background:
+                        p.status === "Disponible"
+                          ? "#123d1f"
+                          : p.status === "Reservado"
+                          ? "#4a3b12"
+                          : "#4a1212",
+                      color:
+                        p.status === "Disponible"
+                          ? "#7dff9b"
+                          : p.status === "Reservado"
+                          ? "#ffd86b"
+                          : "#ff7d7d",
+                      padding: "6px 12px",
+                      borderRadius: "999px",
+                      fontSize: "0.75rem",
+                      fontWeight: "700"
+                    }}
+                  >
+                    {p.status}
+                  </span>
                 </div>
-<div
-  style={{
-  alignSelf: "flex-start",
-  background:
-    p.status === "Disponible"
-      ? "#123d1f"
-      : p.status === "Reservado"
-      ? "#4a3b12"
-      : "#4a1212",
-  color:
-    p.status === "Disponible"
-      ? "#7dff9b"
-      : p.status === "Reservado"
-      ? "#ffd86b"
-      : "#ff7d7d",
-  padding: "6px 12px",
-  borderRadius: "999px",
-  fontSize: "0.75rem",
-  fontWeight: "700"
-}}
->
-  {p.status}
-</div>
+
                 <h2
                   style={{
-                    fontSize: "1.25rem",
+                    fontSize: "1.5rem",
                     margin: 0,
-                    color: "#ffffff",
+                    color: "#fff",
                     fontWeight: "800",
-                    lineHeight: "1.3",
-                    textShadow: "0 1px 3px rgba(0,0,0,0.6)"
+                    lineHeight: "1.2"
                   }}
                 >
                   {p.name}
@@ -282,8 +296,9 @@ margin: "0 auto",
                 <h3
                   style={{
                     color: "#ff8a00",
-                    fontSize: "1.8rem",
-                    margin: 0
+                    fontSize: "1.75rem",
+                    margin: 0,
+                    fontWeight: "900"
                   }}
                 >
                   ${p.price}
@@ -291,10 +306,11 @@ margin: "0 auto",
 
                 <p
                   style={{
-                    color: "#d6d6d6",
-                    lineHeight: "1.6",
+                    color: "#bfbfbf",
+                    lineHeight: "1.5",
                     margin: 0,
-                    fontSize: "0.95rem"
+                    fontSize: "0.92rem",
+                    minHeight: "55px"
                   }}
                 >
                   {p.description}
@@ -303,19 +319,19 @@ margin: "0 auto",
                 <button
                   onClick={() => buyNow(p.name)}
                   style={{
-                    marginTop: "12px",
+                    marginTop: "8px",
                     width: "100%",
-                    padding: "14px",
-                    borderRadius: "12px",
+                    padding: "16px",
+                    borderRadius: "14px",
                     border: "none",
-                    fontWeight: "700",
-                    fontSize: "0.95rem",
+                    fontWeight: "800",
+                    fontSize: "1rem",
                     cursor: "pointer",
                     background: "linear-gradient(135deg, #25D366, #1ebe5d)",
                     color: "white"
                   }}
                 >
-                  Consultar por WhatsApp
+                  Comprar ahora
                 </button>
               </div>
             </div>
@@ -323,7 +339,7 @@ margin: "0 auto",
         </div>
       </section>
 
-      {/* VENDER */}
+      {/* CTA */}
       <section
         style={{
           padding: "70px 20px",
@@ -346,7 +362,7 @@ margin: "0 auto",
             opacity: 0.9
           }}
         >
-          Publicamos tu celular, laptop o tablet en nuestra plataforma y te ayudamos a encontrar compradores reales.
+          Publicamos tu celular, laptop o tablet y te ayudamos a encontrar compradores reales.
         </p>
 
         <a
@@ -378,9 +394,7 @@ margin: "0 auto",
             style={{
               textAlign: "center",
               fontSize: "clamp(1.4rem, 4vw, 2.4rem)",
-              marginBottom: "25px",
-              color: "#ffffff",
-              textShadow: "0 2px 6px rgba(0,0,0,0.6)"
+              marginBottom: "25px"
             }}
           >
             ¿Por qué elegirnos?
